@@ -1,0 +1,291 @@
+//Lab 5
+
+//* VARIABLES * //
+  int bandera, jugador1, jugador2, contador1, contador2 = 0;
+  
+  const int LED1_J1 = 3;
+  const int LED2_J1 = 4;
+  const int LED3_J1 = 5;
+  const int LED4_J1 = 6;
+  const int LED5_J1 = 7;
+  const int LED6_J1 = 8;
+  const int LED7_J1 = 9;
+  const int LED8_J1 = 10;
+  
+  
+  const int LED1_J2 = 23;
+  const int LED2_J2 = 24;
+  const int LED3_J2 = 25;
+  const int LED4_J2 = 26;
+  const int LED5_J2 = 27;
+  const int LED6_J2 = 28;
+  const int LED7_J2 = 29;
+  const int LED8_J2 = 13;
+
+  const int JUGADOR1_WINN = 15;
+  const int JUGADOR2_WINN = 35;
+
+  const int BOTON1 = PB_3;
+  const int BOTON2 = PE_0;
+
+
+void setup() {
+  //PUSH
+  pinMode(PUSH1, INPUT_PULLUP); 
+  pinMode(PUSH2, INPUT_PULLUP); 
+  pinMode(BOTON1, INPUT);
+  pinMode(BOTON2, INPUT);
+  //RGB
+  pinMode(RED_LED, OUTPUT);
+  pinMode(BLUE_LED, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
+  //LEDS
+  pinMode(LED1_J1, OUTPUT);
+  pinMode(LED2_J1, OUTPUT);
+  pinMode(LED3_J1, OUTPUT);
+  pinMode(LED4_J1, OUTPUT);
+  pinMode(LED5_J1, OUTPUT);
+  pinMode(LED6_J1, OUTPUT);
+  pinMode(LED7_J1, OUTPUT);
+  pinMode(LED8_J1, OUTPUT);
+
+  pinMode(LED1_J2, OUTPUT);
+  pinMode(LED2_J2, OUTPUT);
+  pinMode(LED3_J2, OUTPUT);
+  pinMode(LED4_J2, OUTPUT);
+  pinMode(LED5_J2, OUTPUT);
+  pinMode(LED6_J2, OUTPUT);
+  pinMode(LED7_J2, OUTPUT);
+  pinMode(LED8_J2, OUTPUT);
+
+}
+
+void loop() 
+{  
+  if ((digitalRead(PUSH1) == LOW || digitalRead(PUSH2) == LOW) && bandera == 0){sem();}
+  if (bandera == 1){
+    if (digitalRead(BOTON1) == LOW){jugador1 = 1;}
+    if (digitalRead(BOTON2) == LOW){jugador2 = 1;}
+    if (digitalRead(BOTON1) == HIGH && jugador1 == 1){
+      jugador1 = 0;
+      contador1++;}
+    if (digitalRead(BOTON2) == HIGH && jugador2 == 1){
+      jugador2 = 0;
+      contador2++;}
+      
+    switch (contador1){
+      case 1: 
+          digitalWrite(LED1_J1, HIGH);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 2: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, HIGH);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 3: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, HIGH);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 4: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, HIGH);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 5: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, HIGH);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 6: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, HIGH);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 7: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, HIGH);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 8: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, HIGH);
+          break;
+        case 9:
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          digitalWrite(JUGADOR1_WINN, HIGH);
+          bandera = 0;
+          contador1 = 0;
+          contador2 = 0;
+          break; 
+    }
+    switch (contador2){
+      case 1: 
+          digitalWrite(LED1_J1, HIGH);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 2: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, HIGH);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 3: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, HIGH);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 4: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, HIGH);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 5: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, HIGH);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 6: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, HIGH);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 7: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, HIGH);
+          digitalWrite(LED8_J1, LOW);
+          break;
+        case 8: 
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, HIGH);
+          break;
+          
+        case 9:
+          digitalWrite(LED1_J1, LOW);
+          digitalWrite(LED2_J1, LOW);
+          digitalWrite(LED3_J1, LOW);
+          digitalWrite(LED4_J1, LOW);
+          digitalWrite(LED5_J1, LOW);
+          digitalWrite(LED6_J1, LOW);
+          digitalWrite(LED7_J1, LOW);
+          digitalWrite(LED8_J1, LOW);
+          digitalWrite(JUGADOR2_WINN, HIGH);
+          bandera = 0;
+          contador1 = 0;
+          contador2 = 0;
+          break; 
+    }
+
+  }
+}
+
+//SEMAFORO
+void sem(void){
+  analogWrite(RED_LED, 255);
+  analogWrite(BLUE_LED, 0);
+  analogWrite(GREEN_LED, 0);
+  delay(1000);
+  analogWrite(RED_LED, 255);
+  analogWrite(BLUE_LED, 0);
+  analogWrite(GREEN_LED, 255);
+  delay(1000);
+  analogWrite(RED_LED, 0);
+  analogWrite(BLUE_LED, 0);
+  analogWrite(GREEN_LED, 255);
+  delay(1000);
+  analogWrite(RED_LED, 0);
+  analogWrite(BLUE_LED, 0);
+  analogWrite(GREEN_LED, 0);
+  bandera = 1;    
+}
